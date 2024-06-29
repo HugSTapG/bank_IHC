@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Landing_NG": {
+    "Banca_NG": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Landing_NG:build:production"
+              "buildTarget": "Banca_NG:build:production"
             },
             "development": {
-              "buildTarget": "Landing_NG:build:development"
+              "buildTarget": "Banca_NG:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "Landing_NG:build"
+            "buildTarget": "Banca_NG:build"
           }
         },
         "test": {

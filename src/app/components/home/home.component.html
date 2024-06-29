@@ -1,1 +1,61 @@
-<p>home works!</p>
+<main class="account-container">
+    <header class="account-header">
+      <div class="header-top">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/14ca8a23716276193747f4b051f28499780f6b4275953d5c63f40e44ee1739e9?apiKey=c860de28c3074bb79281f8bafbafbccd&" alt="Menu icon" class="menu-icon" />
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2d22936f55e118567bd984a1062ee59ce9949c622fefc7038c24dfb48565bd93?apiKey=c860de28c3074bb79281f8bafbafbccd&" alt="Bank logo" class="bank-logo" />
+      </div>
+      <div class="user-info">
+        <div class="greeting">
+          <h1 class="user-name">Hola, José Garcés</h1>
+          <p class="account-status">Este es el estado de tus cuentas</p>
+        </div>
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9cfc7d79a54b325eaa3e5f3abfc34645cdcf88f4b017fa86aa2ac4092139fdbb?apiKey=c860de28c3074bb79281f8bafbafbccd&" alt="Notification icon" class="notification-icon" />
+      </div>
+      <p class="account-label">Este es tu cuenta</p>
+      <div class="account-number">
+        <span>1480822900</span>
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e14040148c2753bb7e8e788ed556b8c9bb0d50c02a610c6c25a7cecb22387cd2?apiKey=c860de28c3074bb79281f8bafbafbccd&" alt="Copy account number" class="copy-icon" />
+      </div>
+      <nav class="account-nav">
+        <button class="nav-button" [class.active]="activeTab === 'debito'" (click)="setActiveTab('debito')">Débito</button>
+        <button class="nav-button" [class.active]="activeTab === 'credito'" (click)="setActiveTab('credito')">Crédito</button>
+      </nav>
+      <section class="balance-overview">
+        <div class="balance-header">
+          <h2>Gastos</h2>
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e538ab86e7f8dec1e67bd735b8f7d39c08179e0ab24623d74dd66564a0b8926a?apiKey=c860de28c3074bb79281f8bafbafbccd&" alt="Expenses chart" class="expenses-icon" />
+        </div>
+        <p class="balance-label">Saldo disponible</p>
+        <p class="balance-amount">${{ currentBalance.toFixed(2) }}</p>
+        <p class="total-balance">Saldo total de tu cuenta: $100.35</p>
+      </section>
+    </header>
+    <section class="transactions">
+      <div class="transactions-header">
+        <h2 class="transactions-title">últimos movimientos</h2>
+        <a href="#" class="view-all">Ver todos</a>
+      </div>
+      <ul class="transaction-list">
+        <li class="transaction-item" *ngFor="let transaction of transactions">
+            <div class="transaction-details">
+              <h3 class="transaction-title">{{ transaction.title }}</h3>
+              <p class="transaction-date">{{ transaction.date }}</p>
+            </div>
+            <span class="transaction-amount" [ngClass]="{ 'positive': transaction.type === 'income', 'negative': transaction.type === 'expense' }">
+              {{ transaction.amount > 0 ? '+' : '' }}{{ transaction.amount }}
+            </span>
+          </li>
+      </ul>
+    </section>
+    <footer class="footer-container">
+        <div class="image-container">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/885d5d83a66693eb0092dfc5ff8f8254d8dba7b4f2e185d663dacd0a036166ce?apiKey=c860de28c3074bb79281f8bafbafbccd&" alt="Footer decoration" class="footer-image" />
+            <button class="invisible-button" id="Transferir" (click)="handleButtonClick(1)"></button>
+            <button class="invisible-button" id="Pagos" (click)="handleButtonClick(2)"></button>
+            <button class="invisible-button" id="Resumen" (click)="handleButtonClick(3)"></button>
+            <button class="invisible-button" id="Otros" (click)="handleButtonClick(4)"></button>
+            <button class="invisible-button" id="Perfil" (click)="handleButtonClick(5)"></button>
+        </div>
+    </footer>
+</main>
+  
