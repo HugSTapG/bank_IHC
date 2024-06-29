@@ -32,6 +32,7 @@ export class TransactionService {
       amount: amount,
       type: type
     };
+    console.log("Transaccion exitosa - 000");
     this.transactions.push(newTransaction);
   }
 }
